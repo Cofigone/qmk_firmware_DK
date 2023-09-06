@@ -46,19 +46,19 @@ static void oled_render_layer_state(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_ln_P(PSTR("Default"), false);
+            oled_write_ln_P(PSTR("Default\n"), false);
             break;
         case 1:
-            oled_write_ln_P(PSTR("Lower"), false);
+            oled_write_ln_P(PSTR("Lower\n"), false);
             break;
         case 2:
-            oled_write_ln_P(PSTR("Raise"), false);
+            oled_write_ln_P(PSTR("Raise\n"), false);
             break;
         case 3:
-            oled_write_ln_P(PSTR("Adjust"), false);
+            oled_write_ln_P(PSTR("Adjust\n"), false);
             break;
         default:
-            oled_write_ln_P(PSTR("Undef"), false);
+            oled_write_ln_P(PSTR("Undef\n"), false);
             break;
     }
 }
