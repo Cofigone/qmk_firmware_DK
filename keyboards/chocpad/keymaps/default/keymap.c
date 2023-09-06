@@ -11,10 +11,10 @@ enum custom_keycodes {
     PASTE,
     LOGIN,
     GS_SCREENSHOT,
+    VIV_WS_1,
     VIV_WS_2,
     VIV_WS_3,
     VIV_WS_4,
-    VIV_WS_5,
     CHECK_IP
 };
 
@@ -86,6 +86,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
+    case VIV_WS_1:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT("1")));
+            SEND_STRING(SS_DELAY(500));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+
     case VIV_WS_2:
         if (record->event.pressed) {
             SEND_STRING(SS_LCTL(SS_LSFT("2")));
@@ -107,15 +116,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIV_WS_4:
         if (record->event.pressed) {
             SEND_STRING(SS_LCTL(SS_LSFT("4")));
-            SEND_STRING(SS_DELAY(500));
-        } else {
-            // when keycode QMKBEST is released
-        }
-        break;
-
-    case VIV_WS_5:
-        if (record->event.pressed) {
-            SEND_STRING(SS_LCTL(SS_LSFT("5")));
             SEND_STRING(SS_DELAY(500));
         } else {
             // when keycode QMKBEST is released
@@ -162,8 +162,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [0] = LAYOUT_ortho_3x4(
-        VIV_WS_2,   VIV_WS_3,   VIV_WS_4,   VIV_WS_5,
-        KC_B,   LOGIN,   CHECK_IP,   KC_A,
+        VIV_WS_1,   VIV_WS_2,   VIV_WS_3,   VIV_WS_4,
+        GS_SCREENSHOT,   LOGIN,   CHECK_IP,   COPY,
         ACCEPT_CALL,   DECLINE_CALL,   DIAL_MARKED_NUMBER,   PASTE
     )
 };
